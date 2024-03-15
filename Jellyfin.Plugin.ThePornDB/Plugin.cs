@@ -66,9 +66,9 @@ namespace ThePornDB
 
 #if __EMBY__
         public PluginConfiguration Configuration => GetOptions();
-        
+
         public ImageFormat ThumbImageFormat => ImageFormat.Png;
-        
+
         public Stream GetThumbImage() => this.GetType().Assembly.GetManifestResourceStream($"{this.GetType().Namespace}.Resources.logo.png");
 #else
         public IEnumerable<PluginPageInfo> GetPages()
