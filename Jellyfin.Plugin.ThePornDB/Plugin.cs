@@ -25,14 +25,14 @@ namespace ThePornDB
 #if __EMBY__
     public class Plugin : BasePluginSimpleUI<PluginConfiguration>, IHasThumbImage
     {
-        public Plugin(IApplicationPaths applicationPaths, IHttpClient http, ILogManager logger)
+        public Plugin(IApplicationHost applicationPaths, IHttpClient http, ILogManager logger)
 #else
     public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
     {
         public Plugin(IApplicationPaths applicationPaths, IXmlSerializer xmlSerializer, IHttpClientFactory http, ILogger<Plugin> logger)
 #endif
 #if __EMBY__
-            : base(applicationPaths)
+            : base(IApplicationHost)
 #else
             : base(applicationPaths, xmlSerializer)
 #endif
