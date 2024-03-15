@@ -64,16 +64,7 @@ namespace ThePornDB
 
         public override Guid Id => Guid.Parse("fb7580cf-576d-4991-8e56-0b4520c111d3");
 
-#if __EMBY__
-        public PluginConfiguration Configuration => GetOptions();
-
-        public Stream GetThumbImage()
-        {
-            return GetType().Assembly.GetManifestResourceStream($"{this.GetType().Namespace}.Resources.logo.png");
-        }
-
-        public ImageFormat ThumbImageFormat => ImageFormat.Png;
-#else
+#if !__EMBY__
         public IEnumerable<PluginPageInfo> GetPages()
             => new[]
             {
@@ -83,6 +74,14 @@ namespace ThePornDB
                     EmbeddedResourcePath = $"{this.GetType().Namespace}.Configuration.configPage.html",
                 },
             };
+#endif
+
+#if __EMBY__
+        public PluginConfiguration Configuration => GetOptions();
+
+        public Stream GetThumbImage() => this.GetType().Assembly.GetManifestResourceStream($"{this.GetType().Namespace}.Resources.logo.png");
+
+        public ImageFormat ThumbImageFormat => ImageFormat.Png;
 #endif
     }
 }
