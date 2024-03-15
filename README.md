@@ -1,4 +1,4 @@
-# Jellyfin.Plugin.ThePornDB
+# Jellyfin.Plugin.ThePornDB for Emby 4.8.x
 
 This metadata provider helps fill Jellyfin/Emby with information for your adult videos by pulling from [ThePornDB](https://theporndb.net)
 
