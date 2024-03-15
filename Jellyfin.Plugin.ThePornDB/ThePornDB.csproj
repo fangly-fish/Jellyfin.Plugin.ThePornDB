@@ -73,7 +73,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)'=='Debug.Emby' or '$(Configuration)'=='Release.Emby'">
-      <None Remove="thumb.png"/>
+      <None Remove="Resources\logo.png"/>
       <EmbeddedResource Include="Resources\logo.png"/>
   </ItemGroup>
 
