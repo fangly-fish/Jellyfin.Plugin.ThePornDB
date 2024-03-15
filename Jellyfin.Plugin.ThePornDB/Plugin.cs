@@ -32,7 +32,7 @@ namespace ThePornDB
         public Plugin(IApplicationPaths applicationPaths, IXmlSerializer xmlSerializer, IHttpClientFactory http, ILogger<Plugin> logger)
 #endif
 #if __EMBY__
-            : base(IApplicationHost)
+            : base(applicationHost)
 #else
             : base(applicationPaths, xmlSerializer)
 #endif
