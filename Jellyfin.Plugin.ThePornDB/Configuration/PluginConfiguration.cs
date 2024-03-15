@@ -1,4 +1,10 @@
+#if __EMBY__
+using System.ComponentModel;
+using Emby.Web.GenericEdit;
+using MediaBrowser.Model.Attributes;
+#else
 using MediaBrowser.Model.Plugins;
+#endif
 
 namespace ThePornDB.Configuration
 {
@@ -42,8 +48,14 @@ namespace ThePornDB.Configuration
         Face = 1,
     }
 
+    #if __EMBY__
+    public class PluginConfiguration : EditableOptionsBase
+    {
+        public override string EditorTitle => Plugin.Instance.Name;
+    #else
     public class PluginConfiguration : BasePluginConfiguration
     {
+    #endif
         public PluginConfiguration()
         {
             this.MetadataAPIToken = string.Empty;
