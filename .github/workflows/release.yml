@@ -10,6 +10,11 @@ on:
   pull_request:
     branches: 
       -main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Apparently can't just have a simple button to run jobs"
+        type: string
 
 jobs:
   debug-jellyfin:
